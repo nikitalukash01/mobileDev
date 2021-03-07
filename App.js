@@ -6,12 +6,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Лукашук Микита</Text>
+      {/* <Text>Лукашук Микита</Text>
       <Text>Група ІП-83</Text>
-      <Text>ЗК ІП-83</Text>
-    </View>
+      <Text>ЗК ІП-83</Text> */}
+     </View>
   );
 }
+
 
 function SettingsScreen() {
   return (
