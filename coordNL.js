@@ -46,22 +46,20 @@ class CoordinateNL {
     }
     return `${decimal}° ${way}`;
   }
-  static midCor(obj1,obj2){
-      if (obj1.dir != obj2.dir){
-          return null
-      }
-      else {
-          let midDeg,midMin,midSec,newDir;
-          midDeg = Math.round((obj1.deg + obj2.deg)/2);
-          midMin = Math.round((obj1.min+obj2.min)/2);
-          midSec = Math.round((obj1.sec+obj2.sec)/2);
-            // if (obj1.dir ===1){
-            //     newDir = "longitude"
-            // }
-            obj1.dir === 1 ? newDir = "longitude" : "lattitude";
-            return new CoordinateNL(midDeg,midMin,midSec,newDir);
-      }
-
+  static midCor(obj1, obj2) {
+    if (obj1.dir != obj2.dir) {
+      return null;
+    } else {
+      let midDeg, midMin, midSec, newDir;
+      midDeg = Math.round((obj1.deg + obj2.deg) / 2);
+      midMin = Math.round((obj1.min + obj2.min) / 2);
+      midSec = Math.round((obj1.sec + obj2.sec) / 2);
+      // if (obj1.dir ===1){
+      //     newDir = "longitude"
+      // }
+      obj1.dir === 1 ? (newDir = "longitude") : "lattitude";
+      return new CoordinateNL(midDeg, midMin, midSec, newDir);
+    }
   }
   middleCor(deg, min, sec, dir) {
     if (sec < 0 || sec > 59) {
@@ -70,8 +68,8 @@ class CoordinateNL {
     if (min < 0 || min > 59) {
       throw "error";
     }
-    if(dir != this.dir){
-        throw "different ways entered"
+    if (dir != this.dir) {
+      throw "different ways entered";
     }
     if (dir === this.Direction.longitude) {
       if (deg < -90 || deg > 90) {
@@ -83,16 +81,19 @@ class CoordinateNL {
       }
     }
     let newDir;
-    dir === 1 ? newDir ="longitude" : newDir = "lattitude";
-    let midDeg = Math.round((this.deg + deg)/2);
-    let midMin = Math.round((this.min + min)/2);
-    let midSec = Math.round((this.sec + sec)/2);
-    return new CoordinateNL(midDeg,midMin,midSec,newDir)
+    dir === 1 ? (newDir = "longitude") : (newDir = "lattitude");
+    let midDeg = Math.round((this.deg + deg) / 2);
+    let midMin = Math.round((this.min + min) / 2);
+    let midSec = Math.round((this.sec + sec) / 2);
+    return new CoordinateNL(midDeg, midMin, midSec, newDir);
   }
 }
 let cor = new CoordinateNL(20, 10, 50, 1);
 // console.log(cor.checker());
 console.log(cor.stringer());
 console.log(cor.decimal());
-console.dir(cor.middleCor(85,40,50,1))
+console.dir(cor.middleCor(85, 40, 50, 1));
+let cor1 = new CoordinateNL (65,35,40,1);
+console.log(CoordinateNL.midCor(cor,cor1));
 // console.log(cor);
+export default CoordinateNL;
