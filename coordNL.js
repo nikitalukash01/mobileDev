@@ -34,16 +34,19 @@ class CoordinateNL {
     } else {
       this.deg <= 180 && this.deg >= 0 ? (way = "E") : (way = "W");
     }
-    return `${this.deg}°:${this.min}‘:${this.sec}” ${way}`;
+    this.deg < 1? this.deg = this.deg * (- 1) : null ;
+    return `${Math.abs(this.deg)}°:${this.min}‘:${this.sec}” ${way}`;
   }
   decimal() {
     let way;
     let decimal = (this.deg * 3600 + this.min * 60 + this.sec) / 3600;
+    Math.abs(decimal);
     if (this.dir === this.Direction.longitude) {
       this.deg <= 90 && this.deg >= 0 ? (way = "N") : (way = "S");
     } else {
       this.deg <= 180 && this.deg >= 0 ? (way = "E") : (way = "W");
     }
+
     return `${decimal}° ${way}`;
   }
   static midCor(obj1, obj2) {
@@ -52,11 +55,8 @@ class CoordinateNL {
     } else {
       let midDeg, midMin, midSec, newDir;
       midDeg = Math.round((obj1.deg + obj2.deg) / 2);
-      midMin = Math.round((obj1.min + obj2.min) / 2);
-      midSec = Math.round((obj1.sec + obj2.sec) / 2);
-      // if (obj1.dir ===1){
-      //     newDir = "longitude"
-      // }
+      midMin = Math.round(Math.abs((obj1.min + obj2.min) / 2));
+      midSec = Math.round(Math.abs((obj1.sec + obj2.sec) / 2));
       obj1.dir === 1 ? (newDir = "longitude") : "lattitude";
       return new CoordinateNL(midDeg, midMin, midSec, newDir);
     }
@@ -97,3 +97,5 @@ let cor1 = new CoordinateNL (65,35,40,1);
 console.log(CoordinateNL.midCor(cor,cor1));
 // console.log(cor);
 export default CoordinateNL;
+
+
