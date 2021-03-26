@@ -2,9 +2,11 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import DrawingScreen from './screens/Drawing'
+
 import CoordinateNL from './coordNL';
 
- let cordinate = new CoordinateNL(85,40,35,1);
+ let cordinate = new CoordinateNL(-12,31,43,0);
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -24,14 +26,6 @@ function HomeScreen() {
 }
 
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -39,7 +33,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Drawing" component={DrawingScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
