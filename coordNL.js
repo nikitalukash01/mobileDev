@@ -91,7 +91,7 @@ let cor = new CoordinateNL(-12, 31, 43, 0);
 // console.log(cor.decimal());
 // console.dir(cor.middleCor(85, 40, 50, 1));
 let cor1 = new CoordinateNL (12, 31, 43, 0);
- console.log(CoordinateNL.midCor(cor,cor1));
+
 // console.log(cor);
 export default CoordinateNL;
 
