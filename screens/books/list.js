@@ -21,7 +21,7 @@ export default function List({ data, deleteItem, navigation }) {
             handleDelete={() => deleteItem(index)}
             onPress={() => {
               item.isbn13 != "noid" &&
-                navigation.navigate("desc", {
+                navigation.navigate("Desc", {
                   id: item.isbn13,
                   name: item.title,
                 });

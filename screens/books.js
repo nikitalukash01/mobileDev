@@ -29,14 +29,14 @@ export default function Books({ navigation: { navigate } }) {
   return (
     <Navigator>
       <Screen
-        name="Search"
+        name="List"
         options={{
-          title: "Search for books",
+          title: "List for books",
           headerRight: () => (
             <Button
-              onPress={() => navigate("books", { screen: "create" })}
+              onPress={() => navigate("Books", { screen: "Create" })}
               type="clear"
-              icon={<Ionicons name="add" size={24} color="#D2444A" />}
+              icon={<Ionicons name="add" size={24} />}
             />
           ),
         }}
@@ -46,12 +46,12 @@ export default function Books({ navigation: { navigate } }) {
         )}
       </Screen>
       <Screen
-        name="desc"
+        name="Desc"
         component={Desc}
         options={({ route }) => ({
           title: route.params.name,
           headerLeft: (props) => (
-            <HeaderBackButton {...props} tintColor="#D2444A" />
+            <HeaderBackButton {...props} />
           ),
         })}
       />

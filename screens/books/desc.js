@@ -22,14 +22,17 @@ export default function DetailsScreen({ route, navigation }) {
           resizeMode="contain"
           style={{ width: "100%", marginRight: 20 }}
         />
-        {Object.keys(bookDesc).map((key) => (
-          <Text key={key} style={styles.key}>
-            {key}:{" "}
-            <Text key={key} style={styles.text}>
-              {bookDesc[key]}
-            </Text>
-          </Text>
-        ))}
+        {Object.keys(bookDesc).map(
+          (key) =>
+            key == "image" || (
+              <Text key={key} style={styles.key}>
+                {key[0].toUpperCase() + key.slice(1)}:{" "}
+                <Text key={key} style={styles.text}>
+                  {bookDesc[key]}
+                </Text>
+              </Text>
+            )
+        )}
       </ScrollView>
     </SafeAreaView>
   );

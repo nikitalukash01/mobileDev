@@ -12,9 +12,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Button } from "react-native-elements";
 
 export default function Create({ pushItem, navigation: { goBack } }) {
-  const [Title, setTitle] = useState("");
-  const [Subtitle, setSubtitle] = useState("");
-  const [Price, setPrice] = useState("");
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [price, setPrice] = useState("");
 
   return (
     <Modal
@@ -32,12 +32,12 @@ export default function Create({ pushItem, navigation: { goBack } }) {
         <Button
           type="clear"
           title="Create book"
-          titleStyle={{ color: "#D2444A", marginRight: 8 }}
+          titleStyle={{  marginRight: 8 }}
           onPress={() => {
             pushItem({
-              Title,
-              Subtitle,
-              Price,
+              title,
+              subtitle,
+              price:"$" + Number(price).toFixed(2),
             });
             goBack();
           }}
@@ -48,20 +48,20 @@ export default function Create({ pushItem, navigation: { goBack } }) {
           <Text style={styles.text}>Title</Text>
           <TextInput
             style={styles.input}
-            value={Title}
+            value={title}
             onChangeText={setTitle}
           />
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.text}>Subtitle</Text>
-          <TextInput style={styles.input} value={Subtitle} onChangeText={setSubtitle} />
+          <TextInput style={styles.input} value={subtitle} onChangeText={setSubtitle} />
         </View>
         <View style={styles.inputContainer}>
           <Text style={styles.text}>Price</Text>
           <TextInput
             style={styles.input}
             keyboardType="number-pad"
-            value={Price}
+            value={price}
             onChangeText={setPrice}
           />
         </View>
@@ -72,6 +72,7 @@ export default function Create({ pushItem, navigation: { goBack } }) {
 
 const styles = StyleSheet.create({
   container: {
+    margin:"auto",
     paddingHorizontal: 16,
   },
   header: {
