@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawingScreen from "./screens/Drawing";
 import CoordinateNL from "./coordNL";
 import Books from "./screens/books";
+import Images from "./screens/Images";
 
 let cordinate = new CoordinateNL(-12, 31, 43, 0);
 function HomeScreen() {
@@ -30,6 +31,7 @@ export default function App() {
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Drawing" component={DrawingScreen} />
         <Tab.Screen name="Books" component={Books} />
+        <Tab.Screen name ="Images" component={Images}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
